@@ -28,7 +28,6 @@
                       <li><a href="/about">About</a></li>
                       <li><a href="/services">Services</a></li>
                       <li><a href="/posts">Blog</a></li>
-                      <li><a href="/posts/create">Add New</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->

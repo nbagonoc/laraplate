@@ -7,13 +7,8 @@
     @foreach($posts as $post)
     <div class="blog-list-element">
         <hr>
-        <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-        <p>Published on {{$post->created_at}}</p>
-        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
-        {!!Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
-            {{Form::hidden('_method', 'DELETE')}}
-            {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-        {!!Form::close()!!}
+        <h3 class="text-capitalize"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+        <p class="text-muted">{{$post->created_at}} | {{$post->user->name}}</p>
     </div>
     @endforeach
     {{$posts->links()}}
