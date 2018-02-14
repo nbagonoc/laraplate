@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<img src="/storage/featured_images/{{$post->featured_image}}" alt="{{$post->title}}" class="img-responsive center-block">
 <h1 class="text-center text-uppercase">{{$post->title}}</h1>
 <p class="text-center">Published on {{$post->created_at}}</p>
 <p class="text-center">{!!$post->body!!}</p>
