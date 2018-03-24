@@ -49,7 +49,7 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'featured_image' => 'image|nullable|max:1999'
+            'featured_image' => 'required|image|nullable|max:1999'
         ]);
 
         //file upload
@@ -65,9 +65,6 @@ class PostsController extends Controller
             //upload image
             $path  = $request->file('featured_image')->storeAs('public/featured_images', $fileNameToStore);
         }
-        else{
-            $fileNameToStore = 'no_image.jpg';
-        }
         
         //create post
         $post = new Post;
@@ -78,7 +75,7 @@ class PostsController extends Controller
         $post->save();
 
         //redirect after creation
-        return redirect('/posts')->with('success','Post Created');
+        return redirect('/dashboard')->with('success','Post Created');
     }
 
     /**
@@ -104,7 +101,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         //check authorized user
         if(auth()->user()->id !==$post->user_id){
-            return redirect('/posts')->with('error','Unauthorized Access');
+            return redirect('/dashboard')->with('error','Unauthorized Access');
         }
         return view('posts.edit')->with('post', $post);
     }
@@ -148,7 +145,7 @@ class PostsController extends Controller
         $post->save();
 
         //redirect after creation
-        return redirect('/posts')->with('success','Post Updated');
+        return redirect('/dashboard')->with('success','Post Updated');
     }
 
     /**
@@ -161,19 +158,14 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         //check authorized user
-        if(auth()->user()->id !==$post->user_id){
-            return redirect('/posts')->with('error','Unauthorized Access');
+        if(auth()->user()->id!==$post->user_id){
+            return redirect('/dashboard')->with('error','Unauthorized Access');
         }
-        
-        if($post->featured_image == 'no_image.jpg'){
-            //do nothing
-        }
-        else{
-            //delete featured image
-            Storage::delete('public/featured_images/'.$post->featured_image);
-        }
-
+        //remove featured image on storage
+        Storage::delete('public/featured_images/'.$post->featured_image);
+        //remove post
         $post->delete();
-        return redirect('/posts')->with('success','Post Removed');
+        //redirect user with message
+        return redirect('/dashboard')->with('warning','Post Removed');
     }
 }

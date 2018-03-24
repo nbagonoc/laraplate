@@ -1,3 +1,498 @@
-.frame{
-    padding-top: 50px;
+//VARIABLES
+//colors
+$white: #FFF;
+$bright: #FBFBFB;
+$bright-grey: #E3E3E3;
+$grey: #777;
+$dark: #333;
+
+//font-size
+$content: 14px;
+$sub-title: 18px;
+$title: 24px;
+$sub-heading: 32px;
+$heading: 64px;
+
+//font-weight
+$light: 100;
+$normal: 300;
+$bold: bold;
+
+//MIXINS
+@mixin section-background{
+	height: 500px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@mixin full-background{
+	height: 100%;
+	width: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+//body
+html{
+	height: 100%;
+}
+body{
+	padding-top: 50px;
+	height: 100%;
+	font-weight: $normal;
+	font-size: $content;
+	color: $grey;
+}
+
+//links
+a{
+	color: $grey;
+	text-decoration: none;
+	&:hover{
+		color: $dark;
+		text-decoration: none;
+	}
+}
+
+//navigation
+.navbar-default{
+	background: $dark;
+	border-bottom: 1px solid $grey;
+	.navbar-brand{
+		color: $white !important;
+	}
+	.navbar-toggle{
+		padding: 9px 10px;
+	}
+	.navbar-collapse { 
+		max-height: 100% !important; 
+	}
+	.navbar-nav{
+		.active{
+			a{
+				background: $dark;
+				color: $white;
+			}
+		}
+		.current-menu-parent{
+			a{
+				color: #FFF !important;
+			}
+		}
+		li{
+			background: $dark;
+			a{
+				background: $dark;
+				color: $grey;
+				&:hover{
+					background: $dark;
+					color: $white;
+				}
+			}
+		}
+		.open{
+			a{
+				color: $white;
+				background-color: $dark;
+				&:focus{
+					color: $white;
+					background: $dark;
+				}
+				&:hover{
+					color: $white;
+					background: $dark;
+				}
+			}
+		}
+		.dropdown{
+			.dropdown-menu{
+				border-radius: none;
+				border: none;
+				padding: 0;
+				background: $dark;
+				li{
+					a{
+						color: $grey;
+						border-top: 1px solid $grey;
+						padding: 10px 0 10px 24px;
+						&:hover{
+							color: $white;
+							background: $grey;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//panel
+.panel-default{
+	border-color: $bright-grey;
+	.panel-heading{
+		border-color: $bright-grey;
+	}
+}
+
+//content
+.content{
+
+}
+
+//blog
+.blog{
+	h3{
+		margin-top: 0;
+	}
+	a{
+		color: $grey;
+		&:hover{
+			color: $dark;
+			text-decoration: none;
+		}
+	}
+}
+
+//sidebar
+.sidebar{
+	ul{
+		li{
+			border: 1px solid $bright-grey;
+			&:hover{
+				background: $bright;
+			}
+			a{
+				display: block;
+				text-decoration: none;
+				color: $grey;
+				&:hover{
+					color: $dark;
+				}
+			}
+		}
+	}
+}
+
+//dashboad sidebar
+.dashboard-sidebar{
+	ul{
+		li{
+			border: 1px solid $bright-grey;
+			&:hover{
+				background: $bright;
+			}
+			a{
+				display: block;
+				text-decoration: none;
+				color: $grey;
+				&:hover{
+					color: $dark;
+				}
+			}
+		}
+	}
+}
+
+//listgroup
+.list-group{
+	border-color: $bright-grey;
+	.list-group-item{
+		border-color: $bright-grey;
+	}
+}
+
+//pagination
+.pagination{
+	li{
+		border-color: $bright-grey;
+		a{
+			color: $grey;
+			background: $white;
+			&:hover{
+				color: $dark;
+				background: $bright;
+			}
+		}
+	}
+	.active span{
+		color: $dark;
+		border-color: $bright-grey;
+		background: $bright;
+		&:hover{
+			color: $dark;
+			border-color: $bright-grey;
+			background: $bright;
+		}
+	}
+}
+
+//carousel
+.carousel{
+	.carousel-slider{
+		@include section-background;
+		.heading{
+			font-size: $heading;
+			font-weight: $bold;
+			color: $white;
+			text-transform: uppercase;
+		}
+		.sub-heading{
+			font-size: $sub-heading;
+			font-weight: $normal;
+			color: $grey;
+			text-transform: uppercase;
+		}
+	}
+	.carousel-control{
+		background: none !important;
+		.left{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -10px;
+		}
+		.right{
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			margin-top: -10px;
+		}
+	}
+}
+
+//section-background
+.section-background{
+	@include section-background;
+}
+.section-background-home{
+	background: linear-gradient(to bottom, rgba(0,0,0,0.0)0%, rgba(0,0,0,0.0)100%), url("/img/banner.jpg") center center;
+	@include section-background;
+	.heading{
+		font-size: $heading;
+		color: $white;
+	}
+	.sub-heading{
+		font-size: $sub-heading;
+		color: $grey;
+	}
+}
+
+//full-background
+.full-background{
+	@include full-background;
+}
+.full-background-home{
+	background: linear-gradient(to bottom, rgba(0,0,0,0.0)0%, rgba(0,0,0,0.0)100%), url("/img/banner.jpg") center center;
+	@include full-background;
+	.heading{
+		font-size: $heading;
+		color: $white;
+	}
+	.sub-heading{
+		font-size: $sub-heading;
+		color: $grey;
+	}
+}
+
+//background-colors
+.background-white{
+	background: $white;
+}
+.background-bright{
+	background: $bright;
+}
+.background-grey{
+	background: $grey;
+}
+.background-dark{
+	background: $dark;
+}
+
+//spaces
+.space-xs{
+	padding: 15px 0;
+}
+.space-sm{
+	padding: 30px 0;
+}
+.space-md{
+	padding: 50px 0;
+}
+.space-lg{
+	padding: 80px 0;
+}
+
+//gaps
+
+//titles
+.sub-title{
+	font-size: $sub-title;
+	font-weight: $bold;
+	color: $dark;
+	text-transform: capitalize;
+	text-align: center;
+}
+.title{
+	font-size: $title;
+	font-weight: $bold;
+	color: $dark;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+//button btn
+.btn{
+}
+.btn-default{
+	border-color: $bright-grey;
+	color: $grey;
+	background: none;
+	&:hover{
+		border-color: $bright-grey;
+		color: $dark;
+		background: $bright;	
+	}
+}
+
+//full width
+.full-width{
+	width: 100%;
+}
+
+//vertical align
+.vertical-align{
+	display: table; /*no work around with ie7*/
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.vertical-align-element{
+	display: table-cell; /*no work around with ie7*/
+	text-align: center;
+	vertical-align: middle;
+}
+
+//footer
+.footer{
+	hr{
+		border-top: 1px solid $grey;
+	}
+	.social{
+		text-align: center;
+		a{
+			color: $grey;
+			&:hover{
+				color: $bright;
+			}
+		}
+	}
+	.copyrights{
+		text-align: center;
+	}
+}
+
+//MEDIA QUERIES
+/*extra small*/
+@media(max-width:767px){
+	.navbar-default{
+		.navbar-toggle{
+			border: 1px solid $grey;
+			&:hover{
+				background: none;
+			}
+			.icon-bar{
+				background: $grey;
+			}
+		}
+		.navbar-collapse{
+			border-top: none;
+			.navbar-nav{
+				margin-top: 0;
+				margin-bottom: 0;
+				li{
+					a{
+						border-top: 1px solid $grey;
+						&:hover{
+							color: $grey;
+							background: $dark;
+						}
+					}
+				}
+				.open{
+					a{
+						color: $white;
+						background-color: $dark;
+						&:focus{
+							color: $white;
+						}
+						&:hover{
+							color: $white;
+						}
+					}
+				}
+				.dropdown{
+					&:hover{
+						color: $grey;
+					}
+					.dropdown-menu{
+						li{
+							a{
+								&:hover{
+									color: $grey;
+									background: $dark;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.sidebar.affix{
+		position: static;
+	}
+	.dashboard-sidebar.affix{
+		position: static;
+	}
+}
+//small
+@media(min-width:768px){
+	.sidebar.affix{
+		position: static;
+	}
+	.dashboard-sidebar.affix{
+		position: static;
+	}
+}
+//medium
+@media(min-width:992px){
+	.sidebar.affix{
+		position: fixed;
+		width: 293px;
+		top: 80px;
+	}
+	.dashboard-sidebar.affix{
+		position: fixed;
+		width: 293px;
+		top: 80px;
+	}
+}
+//large
+@media(min-width:1200px){
+	.container{
+		width: 970px;
+	}
+	.sidebar.affix{
+		position: fixed;
+		width: 293px;
+		top: 80px;
+	}
+	.dashboard-sidebar.affix{
+		position: fixed;
+		width: 293px;
+		top: 80px;
+	}
+	
 }

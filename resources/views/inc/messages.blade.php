@@ -1,19 +1,33 @@
 @if(count($errors) >0 )
-    @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
+    <ul class="list-group">
+        @foreach($errors->all() as $error)
+        <li class="list-group-item list-group-item-danger">
             {{$error}}
-        </div>
-    @endforeach
+        </li>
+        @endforeach
+    </ul>
 @endif
 
 @if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-success">
+            {{session('success')}}
+        </li>
+    </ul>
+@endif
+
+@if(session('warning'))
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-warning">
+            {{session('warning')}}
+        </li>
+    </ul>
 @endif
 
 @if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">
+            {{session('error')}}
+        </li>
+    </ul>
 @endif

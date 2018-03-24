@@ -978,6 +978,7 @@ module.exports = __webpack_require__(42);
  */
 
 __webpack_require__(11);
+__webpack_require__(53);
 
 window.Vue = __webpack_require__(35);
 
@@ -42915,7 +42916,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "resources/assets/js/components/Example.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -42924,9 +42925,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-b6ebd97a", Component.options)
+    hotAPI.createRecord("data-v-650f2efa", Component.options)
   } else {
-    hotAPI.reload("data-v-b6ebd97a", Component.options)
+    hotAPI.reload("data-v-650f2efa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -43113,7 +43114,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-b6ebd97a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-650f2efa", module.exports)
   }
 }
 
@@ -43122,6 +43123,104 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    //$('.carousel-inner').find('.item:first').addClass('active');/*adds active class to the 1st child for banner slider*/
+
+    /*adds hover effect to thumbnails*/
+    $('.hover-image').hover(doThis, doThis);
+    function doThis() {
+        var $this = $(this);
+        $this.toggleClass('opacity70');
+    }
+
+    /*adds the animation class to trigger animate.css*/
+    $('.post-a').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated fadeIn',
+        offset: 150
+    });
+    $('.post-b').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated flipInX',
+        offset: 150
+    });
+    $('.post-c').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated bounceIn',
+        offset: 150
+    });
+    $('.post-d').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated fadeInUp',
+        offset: 150
+    });
+    $('.post-e').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated fadeInLeft',
+        offset: 150
+    });
+    $('.post-f').addClass("hide-animation").viewportChecker({
+        classToAdd: 'view-animation animated fadeInRight',
+        offset: 150
+    });
+
+    //fix ie BUG on fixed-background CSS
+    if (navigator.userAgent.match(/Trident\/7\./)) {
+        // if IE
+        $('body').on("mousewheel", function () {
+            // remove default behavior
+            event.preventDefault();
+
+            //scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+    }
+
+    // scroll to top
+    window.onscroll = function () {
+        scrollFunction();
+    };
+    // When the user scrolls down 100px from the top of the document, show the button
+    function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("to-top").style.display = "block";
+        } else {
+            document.getElementById("to-top").style.display = "none";
+        }
+    }
+    // on click, scroll to top 
+    $("a[href='#top']").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+
+    //affix and element(sidebar)
+    var $attribute = $('[data-offset-smart-dynamic]');
+    $attribute.each(function () {
+        $(this).affix({
+            offset: {
+                top: $(this).offset().top
+            }
+        });
+    });
+    $(window).on("resize", function () {
+        $attribute.each(function () {
+            $(this).data('bs.affix').options.offset.top = $(this).offset().top;
+        });
+    });
+});
 
 /***/ })
 /******/ ]);

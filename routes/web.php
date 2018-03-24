@@ -11,17 +11,56 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
+//home
+//Route::get('/', 'PagesController@index');
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
+//home
+Route::get('/',[
+    'uses' => 'PagesCOntroller@index',
+    'as' => 'home'
+]);
 
-Route::resource('posts','PostsController');
+//dashboard
+Route::get('/dashboard',[
+    'uses' => 'DashboardController@index',
+    'as' => 'dashboard'
+]);
+
+//create
+Route::get('/post/create',[
+    'uses' => 'PostsController@create',
+    'as' => 'post.create'
+]);
+//create|store
+Route::post('/post/store',[
+    'uses' => 'PostsController@store',
+    'as' => 'post.store'
+]);
+//read
+Route::get('/blog',[
+    'uses' => 'PostsController@index',
+    'as' => 'blog'
+]);
+//read|show
+Route::get('/post/{id}',[
+    'uses' => 'PostsController@show',
+    'as' => 'post.show'
+]);
+//update
+Route::get('/post/edit/{id}',[
+    'uses' => 'PostsController@edit',
+    'as' => 'post.edit'
+]);
+//update|update
+Route::put('/post/update/{id}',[
+    'uses' => 'PostsController@update',
+    'as' => 'post.update'
+]);
+//delete
+Route::delete('/post/delete/{id}',[
+    'uses' => 'PostsController@destroy',
+    'as' => 'post.delete'
+]);
 
 /*
 Route::get('/users/{id}/{name}', function ($id, $name) {
@@ -29,5 +68,3 @@ Route::get('/users/{id}/{name}', function ($id, $name) {
 });
 */
 Auth::routes();
-
-Route::get('/dashboard', 'DashboardController@index');
