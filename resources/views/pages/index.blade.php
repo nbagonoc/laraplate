@@ -15,8 +15,8 @@
         <div class="first-slide carousel-slider" style="background-image: url('/img/banner.jpg'">
             <div class="vertical-align">
             <div class="vertical-align-element">
-                <h1 class="heading">{{$title}}</h1>
-                <h2 class="sub-heading">The first laravel project</h2>
+                <h1 class="heading">LaraPlate</h1>
+                <h2 class="sub-heading">LaraPlate</h2>
             </div>
             </div>
         </div>
@@ -26,8 +26,8 @@
         <div class="second-slide carousel-slider" style="background-image: url('/img/banner.jpg'">
             <div class="vertical-align">
                 <div class="vertical-align-element">
-                    <h1 class="heading">{{$title}}</h1>
-                    <h2 class="sub-heading">The first laravel project</h2>
+                    <h1 class="heading">LaraPlate</h1>
+                    <h2 class="sub-heading">A Laravel 5.4 Boilerplate</h2>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
         <div class="third-slide carousel-slider" style="background-image: url('/img/banner.jpg'">
             <div class="vertical-align">
             <div class="vertical-align-element">
-                <h1 class="heading">{{$title}}</h1>
-                <h2 class="sub-heading">The first laravel project</h2>
+                <h1 class="heading">LaraPlate</h1>
+                <h2 class="sub-heading">With Bootstrap 3</h2>
             </div>
             </div>
         </div>

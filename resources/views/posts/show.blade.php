@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2 hidden-xs">
-    
+                
             </div>
             <div class="col-sm-8">
                     <img src="/storage/featured_images/{{$post->featured_image}}" alt="{{$post->title}}" class="img-responsive center-block">
