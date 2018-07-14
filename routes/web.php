@@ -16,7 +16,7 @@
 
 //home
 Route::get('/',[
-    'uses' => 'PagesCOntroller@index',
+    'uses' => 'PagesController@index',
     'as' => 'home'
 ]);
 
